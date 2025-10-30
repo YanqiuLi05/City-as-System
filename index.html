@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>STANHOPE STREET CURB STREAM</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Sue+Ellen+Francisco&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>STANHOPE STREET CURB STREAM</h1>
+    <span class="stamp" id="statePill"><span class="led"></span> Hydrant: OFF</span>
+    <span class="stamp blue" id="countPill">
+      <span class="led" style="background:var(--ink-blue)"></span> Trash: 0
+    </span>
+  </header>
+
+  
+  <div class="layout">
+
+    <!-- Sidebar controls -->
+    <aside>
+      <div class="card">
+        <label>Weather</label>
+        <div class="row" style="margin-top:4px">
+          <select id="temp" aria-label="Weather">
+            <option value="hot">Hot</option>
+            <option value="cold">Cold</option>
+          </select>
+        </div>
+
+        <label style="margin-top:10px">Add trash</label>
+        <div class="row">
+          <select id="trashType" aria-label="Trash type">
+            <option value="fruit-package">Fruit package</option>
+            <option value="plastic-cup">Plastic cup</option>
+            <option value="beverage-bottle">Beverage bottle</option>
+            <option value="milk-tea-bottle">Milk tea bottle</option>
+            <option value="takis-package">Takis package</option>
+            <option value="cigarette-package">Cigarette package</option>
+            <option value="trash-bag">Trash bag</option>
+            <option value="plastic-food-container">Plastic food container</option>
+            <option value="pill-bottle">Pill bottle</option>
+            <option value="kitchen-trash">Kitchen trash</option>
+            <option value="leaf">Leaf</option>
+            <option value="chip-package">Chip package</option>
+            <option value="crayon-package">Crayon package</option>
+            <option value="restaurant-menu">Restaurant menu</option>
+          </select>
+          <button id="addTrashBtn" class="sticker">Drop In</button>
+        </div>
+
+        <div class="row" style="margin-top:10px">
+          <button id="cleanBtn" title="Street cleaning truck">Street Cleaning</button>
+        </div>
+
+        <div class="legend" id="legend" style="margin-top:10px"></div>
+        <div class="hint" style="margin-top:8px">
+          Rule: <b>Hot = ON + high water level</b>, <b>Cold = OFF + low water level</b>.
+        </div>
+      </div>
+
+      <div class="log card" style="margin-top:14px">
+        <ul id="log"></ul>
+      </div>
+
+      <div class="footer">
+        A field study about the weather, public facility, trash and the people.
+      </div>
+    </aside>
+
+    <main>
+      <div class="scene" id="scene">
+        <div class="river-track" id="riverTrack">
+          <div class="tile" id="tileA" aria-hidden="true"></div>
+          <div class="tile" id="tileB" aria-hidden="true"></div>
+        </div>
+        <div class="trashStream" id="trashStream"></div>
+      </div>
+
+      <section class="about">
+        <p>
+          Outside my house, there’s a fire hydrant that leaks almost every day. I found out it’s because some homeless people at the end of the street turn it on when the weather gets hot, and turn it off when it gets cold. When the hydrant is open, the water runs along the curb like a tiny river. Trash starts collecting there. Takis packages, milk tea cups, leaves, and sometimes even a dead mouse. No one cleans it when it’s wet, but as soon as the water dries, everything gets cleaned right away.
+        </p>
+        <p>
+          I started to see this curb as its own little system in the city. The hydrant connects people, weather, trash, and the city’s cleaning schedule together. It’s meant for emergencies, but now it’s part of daily life, controlled by people who live here. The trash tells stories about what people nearby eat and drink. It feels like a “trash diary” that quietly records how humans, infrastructure, and nature interact every day in my neighborhood.
+        </p>
+        <p>
+          This is a website is a "simulation" of the curb, built to generate the "trash diary".
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <script defer src="app.js"></script>
+</body>
+</html>

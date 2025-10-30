@@ -1,0 +1,190 @@
+
+:root {
+  --paper: #f7f2e7;
+  --ink: #10100f;
+  --ink-blue: #2b5cff;
+  --ink-red: #ff3c54;
+  --ink-cream: #fff0d6;
+  --tape: #f6e6a8;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px/1.5 "Work Sans", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding: 14px 18px;
+  border-bottom: 3px solid var(--ink);
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+header h1 {
+  margin: 0;
+  font-family: "Special Elite";
+  font-size: 20px;
+  transform: rotate(-.4deg);
+}
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 2px solid var(--ink);
+  background: var(--ink-cream);
+  box-shadow: 4px 4px 0 var(--ink);
+  font-weight: 700;
+  border-radius: 0;
+}
+.stamp .led { width: 11px; height: 11px; display: inline-block; background: var(--ink-red); }
+.stamp.blue { background: #e9f0ff; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  min-height: calc(100vh - 56px);
+}
+aside {
+  padding: 18px;
+  border-right: 3px solid var(--ink);
+}
+main {
+  padding: 18px;
+}
+
+.card {
+  background: var(--ink-cream);
+  border: 3px solid var(--ink);
+  padding: 14px;
+  box-shadow: 4px 4px 0 var(--ink);
+  position: relative;
+}
+.card:before {
+  content: "";
+  position: absolute;
+  width: 68px;
+  height: 18px;
+  background: var(--tape);
+  top: -8px;
+  left: 10px;
+}
+label { font-family: "Special Elite"; font-size: 14px; }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+select, button {
+  font: inherit;
+  background: #fff;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  padding: 8px 12px;
+  box-shadow: 3px 3px 0 var(--ink);
+  border-radius: 0;
+}
+button { cursor: pointer; font-weight: 700; }
+button.sticker { background: var(--ink-blue); color: #fff; transform: rotate(-1.2deg); }
+button:active { transform: translateY(1px); }
+.hint { font-family: "Sue Ellen Francisco"; font-size: 16px; color: #111; }
+
+.scene {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+/* River background scroll */
+.river-track {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 200%;
+  height: 100%;
+  animation: river-scroll 14s linear infinite;
+}
+.tile {
+  flex: 0 0 50%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@keyframes river-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ========== TRASH ========== */
+.trashStream {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.trash {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.trash.show { opacity: .98; }
+.trash img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 0 var(--ink));
+}
+
+.legend {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-family: "Special Elite";
+}
+.legend img { width: 18px; height: 18px; object-fit: contain; }
+
+.log {
+  max-height: 420px;
+  overflow: auto;
+  border: 3px solid var(--ink);
+  background: #fff;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.log ul { list-style: none; margin: 0; padding: 0; }
+.log li {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 2px dashed var(--ink);
+}
+.time { font-family: "Special Elite"; }
+.footer {
+  margin-top: 16px;
+  font-family: "Sue Ellen Francisco";
+  font-size: 16px;
+}
+
+.about {
+  margin-top: 20px;
+  padding: 16px;
+  border-top: 3px solid var(--ink);
+  font-family: "Sue Ellen Francisco", cursive;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+}
+.about p { margin: 0 0 1em; }
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  aside { border-right: none; border-bottom: 3px solid var(--ink); }
+}

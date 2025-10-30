@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (store.weather === 'hot'){
       setHydrant(true, 'Hot weather → neighbors turned hydrant ON');
       setRiverImage('assets/river-high.JPG');
-    } else { // cold
+    } else { 
       setHydrant(false, 'Cold weather → hydrant OFF');
       setRiverImage('assets/river-low.jpg');
     }
